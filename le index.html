@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Flashing Text</title>
+    <style>
+        #flashingText {
+            font-size: 48px;
+            font-weight: bold;
+            transition: color 0.5s;
+            color: black; /* Initial color */
+        }
+    </style>
+</head>
+<body>
+    <div id="flashingText">Seattle Roleplay</div>
+    <button id="flashButton">Flash Text</button>
+
+    <script>
+        const flashingText = document.getElementById('flashingText');
+        const flashButton = document.getElementById('flashButton');
+        let flashingInterval;
+
+        flashButton.addEventListener('click', () => {
+            // Clear any existing intervals
+            clearInterval(flashingInterval);
+
+            // Start flashing
+            flashingInterval = setInterval(() => {
+                flashingText.style.color = (flashingText.style.color === 'black') ? 'orange' : 'black';
+            }, 500);
+        });
+    </script>
+</body>
+</html>
